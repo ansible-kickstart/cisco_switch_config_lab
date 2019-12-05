@@ -1,0 +1,32 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  connection: network_cli
+
+
+  vars:
+    csvfile: "{{ lookup('file', 'csv_files/switch.csv') }}"
+
+
+  tasks:
+
+    - name: Parse CSV To YAML
+      template:
+        src: "./iterate_csv.j2"
+        dest: "./iterate_hosts.yml"
+      run_once: true
+
+    - name: Import Vars from iterate_hosts
+      include_vars:
+        file: iterate_hosts.yml
+        name: switch_data
+
+    - name: Create switch configs from hosts file
+      template:
+        src: templates/switch.j2
+        dest:  configs/{{ item.hostname }}
+      with_items: "{{ switch_data.switches }}"
+    
+        
+    

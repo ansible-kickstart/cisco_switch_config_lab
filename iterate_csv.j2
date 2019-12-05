@@ -1,0 +1,25 @@
+---
+switches:
+{% for item in csvfile.split("\n") %}
+{%   if loop.index != 1 %}
+{%     set list = item.split(",") %}
+  - hostname: '{{ list[0]|trim() }}'
+    data_vlan: '{{ list[1]|trim() }}'
+    voice_vlan: '{{ list[2]|trim() }}'
+    ip_address: '{{ list[3]|trim() }}'
+    subnetmask: '{{ list[4]|trim() }}'
+    router_hostname: '{{ list[5]|trim() }}'
+    gateway_ip: '{{ list[6]|trim() }}'
+    spanning_tree: '{{ list[7]|trim() }}'
+    primary_trunk_port: '{{ list[8]|trim() }}'
+    secondary_trunk_port: '{{ list[9]|trim() }}'
+    first_access_port: '{{ list[10]|trim() }}'
+    last_access_port: '{{ list[11]|trim() }}'
+    site_address: '{{ list[12]|trim() }}' 
+    division: '{{ list[13]|trim() }}'
+    sa_name: '{{ list[14]|trim() }}'
+    sa_phone: '{{ list[15]|trim() }}'
+    serial: '{{ list[16]|trim() }}' 
+    switch_model: '{{ list[17]|trim() }}' 
+{%   endif %}
+{% endfor %}
