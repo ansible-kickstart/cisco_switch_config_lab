@@ -1,0 +1,4 @@
+- name: Create config from j2 Template
+  template:
+    src: ./roles/cisco_switch_config_template/templates/switch.j2
+    dest: ./roles/cisco_switch_config_template/files/switch_config

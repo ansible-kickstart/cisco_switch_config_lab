@@ -1,0 +1,9 @@
+---
+- name: Configure Cisco Switch using Tower Survey
+  hosts: localhost
+  gather_facts: false
+  connection: network_cli
+
+  roles:
+    - cisco_switch_config_template
+    - cisco_switch_config_deploy
