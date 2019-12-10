@@ -1,4 +1,4 @@
 - name: Copy config to Switch
   ios_config:
     backup: yes
-    src: ./roles/cisco_switch_config_template/files/switch_config
+    src: ./roles/cisco_switch_config_template/files/{{hostname}}_switch_config

@@ -1,0 +1,18 @@
+---
+hostname: switch1
+voice_vlan: 5
+data_vlan: 1
+spanning_tree: primary
+primary_trunk_port: GigabitEthernet0/0
+router_hostname: router1
+first_access_port: GigabitEthernet0/1
+last_access_port: GigabitEthernet0/23
+ip_address: 192.168.150.109
+subnet_mask: 255.255.255.0
+gateway_ip: 192.168.150.1
+site_address: '123 Main st, Networkville, CA'
+division: 'North America'
+sa_name: 'John Smith'
+sa_phone: '555-555-5555'
+serial: 'Fasdfasdf24334sfda'
+switch_model: 3650
